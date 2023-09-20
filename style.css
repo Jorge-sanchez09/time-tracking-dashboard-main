@@ -1,0 +1,242 @@
+:root{
+    --clr-orange: hsl(15, 100%, 70%);
+    --clr-soft-blue: hsl(195, 74%, 62%);
+    --clr-light-pink: hsl(348, 100%, 68%);
+    --clr-lime: hsl(145, 58%, 55%);
+    --clr-violet: hsl(264, 64%, 52%);
+    --clr-yellow: hsl(43, 84%, 65%);
+
+    --clr-neutral-700: hsl(226, 43%, 10%);
+    --clr-neutral-400: hsl(235, 46%, 20%);
+    --clr-neutral-300: hsl(235, 45%, 61%);
+    --clr-neutral-200: hsl(236, 100%, 87%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-500: 500;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+    margin: 0;
+    padding: 1.5em;
+    font-family: "Rubik", sans-serif;
+    color: var(--clr-neutral-200);
+    background-color: var(--clr-neutral-700);
+}
+
+main{
+    display: grid;
+    gap: 25px;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.author{  
+    background-color: var(--clr-neutral-400);
+}
+
+.author, .activity, .activity__content{
+    border-radius: 0.75em;
+}
+
+.author__flex-group, .buttons{
+    border-radius: 0.75em;
+    display: flex;
+}
+
+.author__flex-group{
+    padding: 2em;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--clr-neutral-300);
+}
+
+.author__img{
+    max-width: 80px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 3px solid var(--clr-neutral-100);
+}
+
+.author__name{
+    margin-top: 3px;
+    font-size: 1.5rem;
+    font-weight: var(--fw-300);
+    color: var(--clr-neutral-100);
+}
+
+.buttons{
+    padding: 1.75em;
+    justify-content: space-between;
+}
+
+.button{
+    font-size: 1.15rem;
+    text-align: left;
+    color: var(--clr-neutral-300);
+}
+
+.button:hover, .button:focus{
+    color: var(--clr-neutral-100);
+}
+
+.button--selected{
+    color: var(--clr-neutral-100);
+}
+
+.activities{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    align-items: end;
+    gap: 30px;
+}
+
+.activity{
+    padding-top: 2.5em;
+    background-repeat: no-repeat;
+    background-position: 90% -5px;
+}
+
+.activity--work{
+    background-color: var(--clr-orange);
+    background-image: url("../images/icon-work.svg");
+}
+
+.activity--play{
+    background-color: var(--clr-soft-blue);
+    background-image: url("../images/icon-play.svg");
+}
+
+.activity--study{
+    background-color: var(--clr-light-pink);
+    background-image: url("../images/icon-study.svg");
+}
+
+.activity--exercise{
+    background-color: var(--clr-lime);
+    background-image: url("../images/icon-exercise.svg");
+}
+.activity--social{
+    background-color: var(--clr-violet);
+    background-image: url("../images/icon-social.svg");
+}
+.activity--self-care{
+    background-color: var(--clr-yellow);
+    background-image: url("../images/icon-self-care.svg");
+}
+
+.activity__content{
+    position: relative;
+    top: 2px;
+    padding: 2em;
+    background-color: var(--clr-neutral-400);
+    cursor: pointer;
+}
+
+.activity__content:hover{
+    background-color: var(--clr-neutral-300);
+}
+
+.activity__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.activity__title{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--clr-neutral-100);
+}
+
+.activity__stats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7px;
+}
+
+.activity__current-hours{
+    font-size: 1.75rem;
+    font-weight: var(--fw-300);
+    color: var(--clr-neutral-100);
+}
+    
+.activity__previous-hours{
+    text-align: right;
+    text-wrap: balance;
+    font-size: 0.9rem;
+}
+
+.activity__button:hover, .activity__button:focus{
+    filter: brightness(2);
+}
+
+/* If browser supports :has() selector, we can create a rule where we hover on child element (activity__button) without triggering parent hover too (activity__content div) */
+@supports selector(:has(*)){
+    .activity__content:hover{
+        background-color: var(--clr-neutral-400);
+    }
+
+    .activity__content:not(:has(.activity__button:hover)):hover{
+        background-color: var(--clr-neutral-300);
+    } 
+}
+
+@media screen and (min-width: 768px) {
+    body{
+        display: grid;
+        place-content: center;
+    }
+
+    main{
+        grid-template-columns: 1fr 3fr;
+        max-width: 1110px;
+        gap: 30px;
+    }
+
+    .author__name{
+        font-size: 2.5rem;
+    }
+
+    .author__flex-group{
+        padding-bottom: 3em;
+        flex-direction: column;
+        align-items: start;
+        gap: 50px;
+    }
+
+    .buttons{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .activity{
+        padding-top: 2.7em;
+    }
+
+    .activity__stats{
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .activity__current-hours{
+        font-size: 3.25rem;
+    }
+}
