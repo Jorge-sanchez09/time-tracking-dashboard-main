@@ -32,9 +32,9 @@ const showActivities = (activities) => {
         const { title, timeframes } = activity;
 
         const search = {
-            daily: "day",
-            weekly: "week",
-            monthly: "month"
+            daily: "Day",
+            weekly: "Week",
+            monthly: "Month"
         };
 
         const activityDiv = document.createElement("div");
