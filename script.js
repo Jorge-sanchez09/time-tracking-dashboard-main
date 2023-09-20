@@ -1,15 +1,16 @@
-const buttons = document.querySelector(".buttons");
+const buttonsContainer = document.querySelector(".buttons");
+const buttons = document.querySelectorAll(".buttons .button");
 const activitiesDiv = document.querySelector(".activities");
-let stat = "daily";
+let stat = "weekly";
+let selectedButton;
 
-buttons.addEventListener("click", e => {
+buttonsContainer.addEventListener("click", e => {
     if(e.target.hasAttribute("data-type"))
     {
-        const selectedButton = e.target;
-        selectedButton.classList.add("button--selected");
+        selectedButton = e.target;
         stat = selectedButton.dataset.type;
 
-        buttons.querySelectorAll(".button").forEach(button => {
+        buttons.forEach(button => {
             if(button != selectedButton)
                 button.classList.remove("button--selected");
         });
@@ -65,5 +66,8 @@ const cleanHTML = () => {
     while(activitiesDiv.firstChild)
         activitiesDiv.removeChild(activitiesDiv.lastChild);
 }
+
+selectedButton = Array.from(buttons).find(button => button.dataset.type == stat);
+selectedButton.classList.add("button--selected");
 
 request();
