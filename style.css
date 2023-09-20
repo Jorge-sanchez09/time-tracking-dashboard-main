@@ -114,30 +114,30 @@ button{
 
 .activity--work{
     background-color: var(--clr-orange);
-    background-image: url("../images/icon-work.svg");
+    background-image: url("images/icon-work.svg");
 }
 
 .activity--play{
     background-color: var(--clr-soft-blue);
-    background-image: url("../images/icon-play.svg");
+    background-image: url("images/icon-play.svg");
 }
 
 .activity--study{
     background-color: var(--clr-light-pink);
-    background-image: url("../images/icon-study.svg");
+    background-image: url("images/icon-study.svg");
 }
 
 .activity--exercise{
     background-color: var(--clr-lime);
-    background-image: url("../images/icon-exercise.svg");
+    background-image: url("images/icon-exercise.svg");
 }
 .activity--social{
     background-color: var(--clr-violet);
-    background-image: url("../images/icon-social.svg");
+    background-image: url("images/icon-social.svg");
 }
 .activity--self-care{
     background-color: var(--clr-yellow);
-    background-image: url("../images/icon-self-care.svg");
+    background-image: url("images/icon-self-care.svg");
 }
 
 .activity__content{
