@@ -8,6 +8,7 @@ buttonsContainer.addEventListener("click", e => {
     if(e.target.hasAttribute("data-type"))
     {
         selectedButton = e.target;
+        selectedButton.classList.add("button--selected");
         stat = selectedButton.dataset.type;
 
         buttons.forEach(button => {
